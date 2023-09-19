@@ -1,10 +1,14 @@
 import express from "express";
 import { engine } from "express-handlebars";
-import path from "path";
-import indexRoutes from "./routes/index.routes";
+import indexRoutes from "./routes/index.routes.js";
 import morgan from "morgan";
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuraciones para HBS
 app.set("views", path.join(__dirname, "views"));
